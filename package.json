@@ -4,7 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "build:all": "node scripts/build-all-sites.js",
+    "deploy:s3": "node scripts/deploy-to-s3.js",
+    "deploy:netlify": "node scripts/deploy-to-netlify.js",
+    "deploy:all": "npm run build:all && node scripts/deploy-to-s3.js",
+    "deploy:all:netlify": "npm run build:all && node scripts/deploy-to-netlify.js",
+    "admin": "npx decap-server"
   },
   "keywords": [],
   "author": "",

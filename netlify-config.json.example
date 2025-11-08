@@ -1,0 +1,17 @@
+{
+  "Rebecca Ryals": {
+    "siteName": "rebeccaryals",
+    "siteId": "",
+    "customDomain": "rebeccaryals.com"
+  },
+  "Jane Doe": {
+    "siteName": "janedoe-author",
+    "siteId": "",
+    "customDomain": "janedoe.com"
+  },
+  "John Smith": {
+    "siteName": "johnsmith-author",
+    "siteId": "",
+    "customDomain": "johnsmith.com"
+  }
+}
