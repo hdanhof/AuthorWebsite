@@ -1,0 +1,17 @@
+{
+  "Rebecca Ryals": {
+    "bucket": "rebeccaryals.com",
+    "region": "us-east-1",
+    "cloudfront": ""
+  },
+  "Jane Doe": {
+    "bucket": "janedoe.com",
+    "region": "us-east-1",
+    "cloudfront": ""
+  },
+  "John Smith": {
+    "bucket": "johnsmith.com",
+    "region": "us-east-1",
+    "cloudfront": ""
+  }
+}

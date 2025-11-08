@@ -361,3 +361,20 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# ==========================================
+# Author Website Specific
+# ==========================================
+
+# 11ty build outputs (per pen name)
+_site_*/
+
+# AWS deployment configuration (contains sensitive bucket info)
+deploy-config.json
+
+# Environment variables
+.env
+.env.local
+
+# Decap CMS local backend
+.decap

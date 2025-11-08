@@ -1,0 +1,201 @@
+# Decap CMS Configuration for Multi-Author Website System
+
+# Backend configuration
+backend:
+  name: git-gateway
+  branch: main # Change this to your main branch name if different
+
+# Local backend for development (uncomment when running locally)
+# To use: npx decap-server
+# local_backend: true
+
+# Media and public folders
+media_folder: "src/images"
+public_folder: "/images"
+
+# Publish mode
+publish_mode: editorial_workflow
+
+# Collections
+collections:
+  # ============================================
+  # PEN NAMES / AUTHOR PROFILES
+  # ============================================
+  - name: "profiles"
+    label: "Pen Names"
+    label_singular: "Pen Name"
+    description: "Manage your author pen names and profiles"
+    files:
+      - name: "all-profiles"
+        label: "All Pen Names"
+        file: "src/_data/profiles.js"
+        fields:
+          - label: "Current Active Pen Name"
+            name: "currentPenName"
+            widget: "string"
+            hint: "The pen name that will be built when running 'npm start'"
+
+          - label: "Pen Name Profiles"
+            name: "profiles"
+            widget: "list"
+            fields:
+              - {label: "Pen Name", name: "penName", widget: "string", hint: "The public pen name"}
+              - {label: "Real Name", name: "realName", widget: "string", hint: "Your real name (optional)", required: false}
+              - {label: "Website URL", name: "website", widget: "string"}
+              - {label: "Page Title", name: "pageTitle", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Biography", name: "bio", widget: "text", hint: "Full author bio for the About page"}
+              - {label: "Genre", name: "genre", widget: "string", hint: "e.g., Urban Fantasy, Science Fiction"}
+              - label: "Social Media"
+                name: "social"
+                widget: "object"
+                fields:
+                  - {label: "Twitter Handle", name: "twitter", widget: "string", required: false}
+                  - {label: "Facebook URL", name: "facebook", widget: "string", required: false}
+                  - {label: "Instagram Handle", name: "instagram", widget: "string", required: false}
+              - {label: "Output Folder", name: "outputFolder", widget: "string", hint: "e.g., _site_penname"}
+              - {label: "CSS File", name: "styles", widget: "string", hint: "e.g., penname.css"}
+              - {label: "Background Image", name: "background", widget: "image", required: false}
+              - {label: "Blog Folder", name: "blogFolder", widget: "string", hint: "e.g., blogs/penname"}
+              - {label: "Book List File", name: "bookList", widget: "string", hint: "e.g., penname_books.json"}
+
+  # ============================================
+  # BLOG POSTS
+  # ============================================
+  - name: "blog-rebeccaryals"
+    label: "Rebecca Ryals - Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/blogs/rebeccaryals"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+      - {label: "Author", name: "author", widget: "hidden", default: "Rebecca Ryals"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: "post"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "blog-janedoe"
+    label: "Jane Doe - Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/blogs/janedoe"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+      - {label: "Author", name: "author", widget: "hidden", default: "Jane Doe"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: "post"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "blog-johnsmith"
+    label: "John Smith - Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/blogs/johnsmith"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+      - {label: "Author", name: "author", widget: "hidden", default: "John Smith"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: "post"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # ============================================
+  # BOOKS
+  # ============================================
+  - name: "books-rebeccaryals"
+    label: "Rebecca Ryals - Books"
+    label_singular: "Book"
+    file: "src/_data/ryals_books.json"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - label: "Books"
+        name: "books"
+        widget: "list"
+        fields:
+          - {label: "Book Title", name: "name", widget: "string"}
+          - {label: "Series Name", name: "series", widget: "string", required: false}
+          - {label: "Cover Image", name: "image", widget: "image"}
+          - {label: "Buy Link", name: "link", widget: "string", hint: "Amazon, BookShop.org, etc."}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "ISBN", name: "isbn", widget: "string", required: false}
+
+  # Placeholder for Jane Doe books (create file if needed)
+  - name: "books-janedoe"
+    label: "Jane Doe - Books"
+    label_singular: "Book"
+    file: "src/_data/janedoe_books.json"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - label: "Books"
+        name: "books"
+        widget: "list"
+        fields:
+          - {label: "Book Title", name: "name", widget: "string"}
+          - {label: "Series Name", name: "series", widget: "string", required: false}
+          - {label: "Cover Image", name: "image", widget: "image"}
+          - {label: "Buy Link", name: "link", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "ISBN", name: "isbn", widget: "string", required: false}
+
+  # Placeholder for John Smith books
+  - name: "books-johnsmith"
+    label: "John Smith - Books"
+    label_singular: "Book"
+    file: "src/_data/johnsmith_books.json"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - label: "Books"
+        name: "books"
+        widget: "list"
+        fields:
+          - {label: "Book Title", name: "name", widget: "string"}
+          - {label: "Series Name", name: "series", widget: "string", required: false}
+          - {label: "Cover Image", name: "image", widget: "image"}
+          - {label: "Buy Link", name: "link", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "ISBN", name: "isbn", widget: "string", required: false}
+
+  # ============================================
+  # SITE PAGES
+  # ============================================
+  - name: "pages"
+    label: "Site Pages"
+    description: "Edit main site pages (shared across all pen names)"
+    files:
+      - name: "newsletter"
+        label: "Newsletter Page"
+        file: "src/newsletter.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/base.njk"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Navigation Order", name: "eleventyNavigation", widget: "object", fields: [{label: "Key", name: "key", widget: "string"}, {label: "Order", name: "order", widget: "number"}]}
+          - {label: "Body", name: "body", widget: "markdown"}

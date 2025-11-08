@@ -54,6 +54,9 @@ module.exports = function (eleventyConfig) {
     // Copy the images folder to the output directory
     eleventyConfig.addPassthroughCopy("src/images");
 
+    // Copy admin folder for Decap CMS (available on all sites)
+    eleventyConfig.addPassthroughCopy("src/admin");
+
     eleventyConfig.addFilter("dateIso", (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISO();
     });
