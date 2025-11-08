@@ -56,8 +56,11 @@ A powerful static site generator for fiction authors managing multiple pen names
 | `npm start` | Start development server with admin interface |
 | `npm run build` | Build the currently active pen name's site |
 | `npm run build:all` | Build websites for all pen names |
-| `npm run deploy "Pen Name"` | Deploy a specific pen name to S3 |
-| `npm run deploy:all` | Build and deploy all pen name sites |
+| `npm run deploy:netlify` | Deploy all sites to Netlify (recommended) |
+| `npm run deploy:netlify "Pen Name"` | Deploy specific pen name to Netlify |
+| `npm run deploy:all:netlify` | Build and deploy all sites to Netlify |
+| `npm run deploy:s3` | Deploy sites to AWS S3 |
+| `npm run deploy:all` | Build and deploy all sites to S3 |
 | `npm run admin` | Start Decap CMS local backend server |
 
 ## 🏗️ Architecture
@@ -190,51 +193,62 @@ Edit `src/_data/penname_books.json`:
 
 ## 🚀 Deployment
 
-### AWS S3 Setup
+**📖 See the [Complete Deployment Guide](DEPLOYMENT_GUIDE.md)** for step-by-step instructions!
 
-1. **Install AWS CLI**
+### Recommended: Netlify (Easiest for Authors)
+
+Netlify is **free** and **perfect for fiction authors** - no technical knowledge required!
+
+**Option 1: Drag & Drop (No Commands!)**
+1. Build sites: `npm run build:all`
+2. Go to https://app.netlify.com/drop
+3. Drag your `_site_penname` folder
+4. Done! Your site is live!
+
+**Option 2: CLI Deployment (One Command)**
+1. One-time setup:
    ```bash
-   # macOS
-   brew install awscli
-
-   # Windows
-   # Download from https://aws.amazon.com/cli/
+   npm install -g netlify-cli
+   netlify login
    ```
 
-2. **Configure Credentials**
+2. Deploy all sites:
    ```bash
+   npm run deploy:all:netlify
+   ```
+
+3. Deploy one site:
+   ```bash
+   npm run deploy:netlify "Rebecca Ryals"
+   ```
+
+**Benefits:**
+- ✅ Free forever (unlimited sites!)
+- ✅ Automatic HTTPS/SSL
+- ✅ Custom domains included
+- ✅ No credit card required
+- ✅ 30-second deployments
+
+### Alternative: AWS S3 (Advanced Users)
+
+For authors with existing AWS accounts or advanced needs.
+
+1. **Setup**
+   ```bash
+   # Install AWS CLI and configure
    aws configure
+
+   # Create config from template
+   cp deploy-config.json.example deploy-config.json
    ```
 
-3. **Create Deployment Config**
-
-   Copy `deploy-config.json.example` to `deploy-config.json`:
-
-   ```json
-   {
-     "Rebecca Ryals": {
-       "bucket": "rebeccaryals.com",
-       "region": "us-east-1",
-       "cloudfront": "E1234567890ABC"
-     }
-   }
-   ```
-
-4. **Deploy**
+2. **Deploy**
    ```bash
-   # Deploy all sites
-   npm run deploy:all
-
-   # Deploy one site
-   npm run deploy "Rebecca Ryals"
+   npm run deploy:all        # Deploy all to S3
+   npm run deploy:s3 "Pen Name"  # Deploy one to S3
    ```
 
-### S3 Bucket Configuration
-
-Each pen name needs:
-- S3 bucket configured for static website hosting
-- Public read access (or CloudFront distribution)
-- Optional: Custom domain with Route 53
+See [Deployment Guide](DEPLOYMENT_GUIDE.md) for detailed S3 setup instructions.
 
 ## 🔧 Customization
 

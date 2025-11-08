@@ -250,71 +250,84 @@ Each folder contains a complete, ready-to-publish website.
 
 ## Publishing to the Web
 
-### Setting Up AWS S3 (One-time Setup)
+**📖 For complete deployment instructions, see the [Deployment Guide](DEPLOYMENT_GUIDE.md)**
 
-1. **Install AWS CLI**
-   - Download from: https://aws.amazon.com/cli/
-   - Follow installation instructions for your operating system
+### Quick Start: Netlify (Recommended - Easiest!)
 
-2. **Configure AWS Credentials**
+Netlify is **completely free** and perfect for authors. No technical knowledge required!
+
+#### The Simplest Way (Drag & Drop):
+
+1. **Build your sites**
    ```bash
-   aws configure
-   ```
-   Enter your:
-   - AWS Access Key ID
-   - AWS Secret Access Key
-   - Default region (e.g., `us-east-1`)
-   - Output format: `json`
-
-3. **Create Deployment Configuration**
-   - Copy `deploy-config.json.example` to `deploy-config.json`
-   - Edit `deploy-config.json` with your S3 bucket names:
-
-   ```json
-   {
-     "Rebecca Ryals": {
-       "bucket": "rebeccaryals.com",
-       "region": "us-east-1",
-       "cloudfront": "E1234567890ABC"
-     }
-   }
+   npm run build:all
    ```
 
-   Replace:
-   - `bucket`: Your S3 bucket name
-   - `region`: Your AWS region
-   - `cloudfront`: Your CloudFront distribution ID (optional, leave empty if not using CloudFront)
+2. **Deploy with drag-and-drop**
+   - Go to: https://app.netlify.com/drop
+   - Sign up for a free account (no credit card needed!)
+   - Drag your `_site_rebeccaryals` folder onto the page
+   - Wait a few seconds - **your site is live!**
+   - Get your URL like: `rebeccaryals.netlify.app`
 
-### Deploying One Site
+3. **Repeat for each pen name**
+   - Drag `_site_janedoe` to create Jane's site
+   - Drag `_site_johnsmith` to create John's site
+   - Each pen name = separate website
 
-To deploy a specific pen name's website:
+**That's it!** No command line needed beyond the initial build.
+
+#### The One-Command Way (CLI):
+
+If you'll be updating regularly, use the CLI for super-fast deployments:
+
+1. **One-time setup** (3 minutes):
+   ```bash
+   npm install -g netlify-cli
+   netlify login
+   ```
+
+2. **Deploy all sites**:
+   ```bash
+   npm run deploy:all:netlify
+   ```
+
+3. **Deploy one site**:
+   ```bash
+   npm run deploy:netlify "Rebecca Ryals"
+   ```
+
+**Why Netlify?**
+- ✅ Free forever (unlimited sites!)
+- ✅ Automatic HTTPS/SSL
+- ✅ Custom domains included
+- ✅ 30-second deployments
+- ✅ No credit card required
+- ✅ Perfect for authors
+
+### Adding Custom Domains
+
+Once your site is on Netlify:
+
+1. Go to https://app.netlify.com/
+2. Click on your site
+3. Click "Domain management" → "Add custom domain"
+4. Enter `rebeccaryals.com`
+5. Follow the simple DNS instructions
+
+### Alternative: AWS S3 (Advanced Users)
+
+If you're comfortable with AWS or need advanced features:
 
 ```bash
-npm run deploy "Rebecca Ryals"
-```
+# Configure AWS CLI (one time)
+aws configure
 
-(Use the exact pen name as it appears in your profiles)
-
-### Deploying All Sites
-
-To build and deploy all pen name websites at once:
-
-```bash
+# Deploy to S3
 npm run deploy:all
 ```
 
-This will:
-1. Build all sites
-2. Upload each site to its S3 bucket
-3. Invalidate CloudFront caches (if configured)
-
-### What Happens During Deployment
-
-When you deploy, the script:
-- ✅ Uploads all website files to S3
-- ✅ Removes old files that no longer exist
-- ✅ Clears CloudFront cache so changes appear immediately
-- ✅ Shows progress for each pen name
+See [Deployment Guide](DEPLOYMENT_GUIDE.md) for detailed S3 instructions.
 
 ---
 

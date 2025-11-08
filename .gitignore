@@ -369,8 +369,9 @@ FodyWeavers.xsd
 # 11ty build outputs (per pen name)
 _site_*/
 
-# AWS deployment configuration (contains sensitive bucket info)
+# Deployment configurations (may contain sensitive info)
 deploy-config.json
+netlify-config.json
 
 # Environment variables
 .env
@@ -378,3 +379,6 @@ deploy-config.json
 
 # Decap CMS local backend
 .decap
+
+# Netlify build files
+.netlify
