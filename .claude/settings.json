@@ -1,0 +1,103 @@
+{
+  "projectContext": {
+    "name": "AuthorWebsite - Multi-Tenant Static Site Generator",
+    "description": "Eleventy-based static site generator for fiction authors with multiple pen names. Supports unlimited author identities from a single codebase with Decap CMS for content management.",
+    "architecture": {
+      "generator": "Eleventy 11ty v3.0",
+      "cms": "Decap CMS 3.0 (headless)",
+      "templates": "Nunjucks (.njk)",
+      "styling": "Custom CSS per pen name",
+      "deployment": "Netlify or AWS S3"
+    },
+    "criticalFiles": [
+      "src/_data/profiles.js - Controls active pen name and configuration",
+      ".eleventy.js - Main Eleventy configuration",
+      "scripts/build-all-sites.js - Multi-site build automation (modifies profiles.js)",
+      "src/admin/config.yml - Decap CMS configuration"
+    ],
+    "keyArchitectureNotes": [
+      "currentPenName in src/_data/profiles.js controls which site builds",
+      "Each pen name requires: outputFolder, styles (CSS), blogFolder, and optional bookList (JSON)",
+      "build-all-sites.js temporarily modifies profiles.js for each build iteration",
+      "Each pen name builds to a separate _site_* folder (gitignored)",
+      "Blog posts stored in src/blogs/penname/ directories",
+      "Book data stored in src/_data/penname_books.json files"
+    ]
+  },
+  "development": {
+    "nodeVersion": "18+",
+    "packageManager": "npm",
+    "devServer": "http://localhost:8080",
+    "adminPanel": "http://localhost:8080/admin/",
+    "commonCommands": {
+      "start": "Start dev server with live reload",
+      "build": "Build current pen name site",
+      "build:all": "Build all pen name sites to separate folders",
+      "admin": "Start Decap CMS admin server",
+      "deploy:netlify": "Deploy to Netlify",
+      "deploy:s3": "Deploy to AWS S3"
+    }
+  },
+  "codeStyle": {
+    "indentStyle": "spaces",
+    "indentSize": 4,
+    "eslint": {
+      "enabled": true,
+      "configFile": "eslint.config.js",
+      "rules": {
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "semi": ["error", "always"],
+        "quotes": ["error", "single", { "avoidEscape": true }]
+      }
+    },
+    "formatting": {
+      "javascript": {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "tabWidth": 4
+      },
+      "markdown": {
+        "proseWrap": "always",
+        "printWidth": 80
+      }
+    }
+  },
+  "fileIgnorePatterns": [
+    "_site_*/",
+    "node_modules/",
+    ".decap/",
+    ".netlify/",
+    "*.log",
+    ".DS_Store",
+    ".env",
+    ".env.local"
+  ],
+  "agentGuidelines": [
+    "Always validate profiles.js before making changes to pen names",
+    "When adding a new pen name, ensure CSS file, blog folder, and books JSON are created",
+    "Never commit _site_* folders (they are build artifacts)",
+    "Test builds locally with 'npm run build:all' before deploying",
+    "The build-all-sites.js script modifies profiles.js - this is expected behavior",
+    "Blog posts use frontmatter with: title, date, author, excerpt, tags",
+    "Books data uses JSON with: title, isbn, coverImage, description, purchaseLinks",
+    "Deployment configs (netlify-config.json, deploy-config.json) are gitignored - only commit examples"
+  ],
+  "testing": {
+    "preDeployment": [
+      "Run 'npm run build:all' and verify no errors",
+      "Check that all _site_* folders are generated",
+      "Validate all internal links work",
+      "Ensure images are optimized and load correctly"
+    ]
+  },
+  "monitoring": {
+    "watchPatterns": [
+      "src/_data/profiles.js",
+      "src/_data/*_books.json",
+      "src/blogs/**/*.md",
+      "src/css/*.css",
+      ".eleventy.js"
+    ]
+  }
+}
