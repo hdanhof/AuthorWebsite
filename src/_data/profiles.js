@@ -1,59 +1,60 @@
 module.exports = {
-    currentPenName: "Rebecca Ryals", // Change this to switch between pen names
+    currentPenName: "Alyndra Quinn", // Change this to switch between pen names
 
     profiles: {
-        "Rebecca Ryals": {
-            penName: "Rebecca Ryals",
-            realName: "Not Shared", // Optional
-            website: "https://RebeccaRyals.com",
-            pageTitle: "R L Ryals",
-            email: "hello@rebeccaryals.com",
-            bio: `Rebecca Ryals, is your go-to author for thrilling Urban Fantasy detective novels. 
-            \nThe unique blend of magic and technology will transport you into a world where dragons exist and mysteries abound.
-            \nInspired by the likes of The Dresden Files and Altered Carbon, the novels offer a captivating reading experience that will leave you wanting more.
-            \nWhether you're a fan of the genre or new to Urban Fantasy, these books are sure to keep you hooked from the first page to the last.
-            \nExplore the extraordinary and immerse yourself in a world where the supernatural meets the modern.\n\n`,
-            genre: "Urban Fantasy Detective",
-            social: {
-                twitter: "@rebeccaryals",
-                facebook: "https://facebook.com/rebeccaryals"
-            },
-            outputFolder: "_site_ryals", // Custom output directory
-            styles: "ryals.css",
-            background: "/images/website_background.jpg",
-            blogFolder: "blogs/rebeccaryals",
-            bookList: "ryals_books.json"
-        },
-        "Jane Doe": {
-            penName: "Jane Doe",
-            realName: "Not Shared", // Optional
-            website: "https://janedoeauthor.com",
-            email: "reply@janedoeauthor.com",
-            bio: "Jane Doe, is your go-to author for thrilling Urban Fantasy detective novels. The unique blend of magic and technology will transport you into a world where dragons exist and mysteries abound. Inspired by the likes of The Dresden Files and Altered Carbon, the novels offer a captivating reading experience that will leave you wanting more. Whether you're a fan of the genre or new to Urban Fantasy, these books are sure to keep you hooked from the first page to the last. Explore the extraordinary and immerse yourself in a world where the supernatural meets the modern.",
-            genre: "Urban Fantasy Detective",
-            social: {
-                twitter: "@janedoeauthor",
-                facebook: "https://facebook.com/janedoeauthor"
-            },
-            outputFolder: "_site_janedoe", // Custom output directory
-            styles: "janedoe.css",
-            background: "/images/janedoe-bg.jpg",
-            blogFolder: "blogs/janedoe"
-        },
-        "John Smith": {
-            penName: "John Smith",
+        "Alyndra Quinn": {
+            penName: "Alyndra Quinn",
             realName: "Not Shared",
-            website: "https://johnsmithbooks.com",
-            bio: "John Smith is a bestselling sci-fi author exploring the future of humanity.",
-            genre: "Science Fiction, Dystopian",
+            website: "https://alyndraquinn.com",
+            pageTitle: "Alyndra Quinn",
+            email: "hello@alyndraquinn.com",
+            bio: `Alyndra Quinn writes romance that doesn't flinch. From the raw intensity of contemporary BDSM romance to the shadowed world of assassins, her stories explore what happens when desire meets danger and devotion conquers darkness.\n\nFor readers who know the difference between a hero who's good and a hero who's yours.`,
+            genre: "Contemporary BDSM Romance, Dark Assassin Romance",
             social: {
-                twitter: "@johnsmithbooks",
-                facebook: "https://facebook.com/johnsmithbooks"
+                twitter: "",
+                facebook: ""
             },
-            outputFolder: "_site_johnsmith", // Custom output directory
-            styles: "johnsmith.css",
-            background: "/images/johnsmith-bg.jpg",
-            blogFolder: "blogs/johnsmith"
+            outputFolder: "_site_alyndraquinn",
+            styles: "alyndraquinn.css",
+            background: "/images/website_background.jpg",
+            blogFolder: "blogs/alyndraquinn",
+            bookList: "alyndraquinn_books.json"
+        },
+        "Storm Blake": {
+            penName: "Storm Blake",
+            realName: "Not Shared",
+            website: "https://stormblakebooks.com",
+            pageTitle: "Storm Blake",
+            email: "hello@stormblakebooks.com",
+            bio: `Storm Blake writes paranormal romance for women who know that the best adventures — and the best love stories — don't have an expiration date. Her heroines are 30+, fearless, and absolutely chosen.\n\nStep through the threshold. The supernatural is waiting.`,
+            genre: "Paranormal Romance",
+            social: {
+                twitter: "",
+                facebook: ""
+            },
+            outputFolder: "_site_stormblake",
+            styles: "stormblake.css",
+            background: "/images/website_background.jpg",
+            blogFolder: "blogs/stormblake",
+            bookList: "stormblake_books.json"
+        },
+        "Jasmine Shadow": {
+            penName: "Jasmine Shadow",
+            realName: "Not Shared",
+            website: "https://jasmineshadow.com",
+            pageTitle: "Jasmine Shadow",
+            email: "hello@jasmineshadow.com",
+            bio: `Jasmine Shadow invites you into a sprawling paranormal universe where every story is connected and every shadow hides a secret. Welcome to the shared world — once you enter, you won't want to leave.`,
+            genre: "Paranormal Romance, Shared World",
+            social: {
+                twitter: "",
+                facebook: ""
+            },
+            outputFolder: "_site_jasmineshadow",
+            styles: "jasmineshadow.css",
+            background: "/images/website_background.jpg",
+            blogFolder: "blogs/jasmineshadow",
+            bookList: "jasmineshadow_books.json"
         }
     }
 };

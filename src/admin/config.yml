@@ -62,10 +62,10 @@ collections:
   # ============================================
   # BLOG POSTS
   # ============================================
-  - name: "blog-rebeccaryals"
-    label: "Rebecca Ryals - Blog Posts"
+  - name: "blog-alyndraquinn"
+    label: "Alyndra Quinn - Blog Posts"
     label_singular: "Blog Post"
-    folder: "src/blogs/rebeccaryals"
+    folder: "src/blogs/alyndraquinn"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -74,17 +74,17 @@ collections:
       preview: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
-      - {label: "Author", name: "author", widget: "hidden", default: "Rebecca Ryals"}
+      - {label: "Author", name: "author", widget: "hidden", default: "Alyndra Quinn"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Tags", name: "tags", widget: "hidden", default: "post"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "blog-janedoe"
-    label: "Jane Doe - Blog Posts"
+  - name: "blog-stormblake"
+    label: "Storm Blake - Blog Posts"
     label_singular: "Blog Post"
-    folder: "src/blogs/janedoe"
+    folder: "src/blogs/stormblake"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -93,17 +93,17 @@ collections:
       preview: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
-      - {label: "Author", name: "author", widget: "hidden", default: "Jane Doe"}
+      - {label: "Author", name: "author", widget: "hidden", default: "Storm Blake"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Tags", name: "tags", widget: "hidden", default: "post"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "blog-johnsmith"
-    label: "John Smith - Blog Posts"
+  - name: "blog-jasmineshadow"
+    label: "Jasmine Shadow - Blog Posts"
     label_singular: "Blog Post"
-    folder: "src/blogs/johnsmith"
+    folder: "src/blogs/jasmineshadow"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -112,7 +112,7 @@ collections:
       preview: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
-      - {label: "Author", name: "author", widget: "hidden", default: "John Smith"}
+      - {label: "Author", name: "author", widget: "hidden", default: "Jasmine Shadow"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", hint: "Brief description for SEO and previews"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -122,10 +122,10 @@ collections:
   # ============================================
   # BOOKS
   # ============================================
-  - name: "books-rebeccaryals"
-    label: "Rebecca Ryals - Books"
+  - name: "books-alyndraquinn"
+    label: "Alyndra Quinn - Books"
     label_singular: "Book"
-    file: "src/_data/ryals_books.json"
+    file: "src/_data/alyndraquinn_books.json"
     extension: "json"
     format: "json"
     editor:
@@ -142,11 +142,10 @@ collections:
           - {label: "Description", name: "description", widget: "text", required: false}
           - {label: "ISBN", name: "isbn", widget: "string", required: false}
 
-  # Placeholder for Jane Doe books (create file if needed)
-  - name: "books-janedoe"
-    label: "Jane Doe - Books"
+  - name: "books-stormblake"
+    label: "Storm Blake - Books"
     label_singular: "Book"
-    file: "src/_data/janedoe_books.json"
+    file: "src/_data/stormblake_books.json"
     extension: "json"
     format: "json"
     editor:
@@ -159,15 +158,14 @@ collections:
           - {label: "Book Title", name: "name", widget: "string"}
           - {label: "Series Name", name: "series", widget: "string", required: false}
           - {label: "Cover Image", name: "image", widget: "image"}
-          - {label: "Buy Link", name: "link", widget: "string"}
+          - {label: "Buy Link", name: "link", widget: "string", hint: "Amazon, BookShop.org, etc."}
           - {label: "Description", name: "description", widget: "text", required: false}
           - {label: "ISBN", name: "isbn", widget: "string", required: false}
 
-  # Placeholder for John Smith books
-  - name: "books-johnsmith"
-    label: "John Smith - Books"
+  - name: "books-jasmineshadow"
+    label: "Jasmine Shadow - Books"
     label_singular: "Book"
-    file: "src/_data/johnsmith_books.json"
+    file: "src/_data/jasmineshadow_books.json"
     extension: "json"
     format: "json"
     editor:
@@ -180,7 +178,7 @@ collections:
           - {label: "Book Title", name: "name", widget: "string"}
           - {label: "Series Name", name: "series", widget: "string", required: false}
           - {label: "Cover Image", name: "image", widget: "image"}
-          - {label: "Buy Link", name: "link", widget: "string"}
+          - {label: "Buy Link", name: "link", widget: "string", hint: "Amazon, BookShop.org, etc."}
           - {label: "Description", name: "description", widget: "text", required: false}
           - {label: "ISBN", name: "isbn", widget: "string", required: false}
 

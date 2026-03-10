@@ -1,0 +1,136 @@
+
+/* Base styles for body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0a1a10;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    background-image: linear-gradient(to bottom, rgba(10, 26, 16, 0) 70%, rgba(10, 26, 16, 0.8) 100%), url('/images/website_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Navigation styling */
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline;
+    margin-right: 2px;
+    border-right-style: outset;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #c0c0d0;
+    padding: 2px;
+    margin: 1px;
+}
+
+.nav-active {
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Container holds the text and book image */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Layout change on larger screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .text-section,
+    .book-image {
+        max-width: 45%;
+    }
+}
+
+/* Text-section styling */
+.text-section {
+    padding: 10px;
+}
+
+    .text-section h2,
+    .text-section p {
+        margin-bottom: 20px;
+    }
+
+/* Book image container styling */
+.book-image {
+    padding: 10px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .book-image a {
+        display: inline-block;
+    }
+
+    .book-image img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border: 2px solid #c0c0d0;
+        border-radius: 5px;
+    }
+
+    .book-image a:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(192, 192, 208, 0.5);
+    }
+
+    .book-image::after {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.1em;
+        color: #0a1a10;
+        background-color: #c0c0d0;
+        padding: 8px 12px;
+        border-radius: 3px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .book-image a:hover + ::after,
+    .book-image:hover::after {
+        background-color: #2e8b57;
+        color: #fff;
+    }
+
+/* Extra styling for the introductory text section */
+.intro {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+    .intro a {
+        color: #c0c0d0;
+        text-decoration: none;
+        margin-right: 10px;
+    }
